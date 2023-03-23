@@ -9,7 +9,7 @@ jobs:
     steps:
         - name: Local Stack Docker Setup
           run: |
-           brew install localstack
+           python3 -m pip install localstack
            
             
         - name: Checkout Code
