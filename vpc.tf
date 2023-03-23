@@ -10,8 +10,8 @@ resource "aws_vpc" "name" {
 
 resource "aws_subnet" "pbsubnet" {
   tags = {
-    "name" = "$(var.default_tags[key2])-vpc-count"
+    "name" = "$(var.default_tags[key2])-vpc-(count.index)"
   }
   count =(var.pbsubnetcount > var.azcount ? var.pbsubnetcount % var.azcount: var.pbsubnetcount.index )
-  cidr_block = cidrsubnet("10.0.0.0/16",4,count)
+  cidr_block = cidrsubnet("10.0.0.0/16",4,count.index)
 }
