@@ -9,8 +9,8 @@ jobs:
     steps:
         - name: Local Stack Docker Setup
           run: |
-            docker run --rm -t -p 4566:4566 -p 4510-4559:4510-4559 localstack/localstack
-            docker ps
+           python3 -m pip install localstack
+           localstack start
             
         - name: Checkout Code
           uses: actions/checkout@v3
