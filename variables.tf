@@ -11,3 +11,8 @@ variable "subnetcount" {
     description = "(optional) describe your variable"
     default = 5
 }
+
+variable "scount" {
+  type = number
+  description = "(optional) describe your variable"
+}
