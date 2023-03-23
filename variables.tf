@@ -9,7 +9,7 @@ variable "default_tags" {
 variable "azcount" {
     type = number
     description = "(optional) describe your variable"
-    default = 5
+    default = 6
 }
 
 variable "pbsubnetcount" {
