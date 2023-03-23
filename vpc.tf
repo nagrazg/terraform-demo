@@ -8,11 +8,15 @@ resource "aws_vpc" "name" {
   enable_dns_support = true
 }
 
+locals {
+  scount = (count.index <=3 ? count.index : count.index % 3  )
+}
+
 resource "aws_subnet" "pbsubnet" {
   vpc_id     = aws_vpc.name.id
   count = var.subnetcount
-  scount = (count.index <=3 ? count.index : count.index % 3  )
-  cidr_block = cidrsubnet("10.0.0.0/16",4,var.scount)
+  
+  cidr_block = cidrsubnet("10.0.0.0/16",4, local.count)
    tags = {
     Name = "${var.default_tags["key2"]}- count.index"
   }
