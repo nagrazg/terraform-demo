@@ -9,8 +9,8 @@ jobs:
     steps:
         - name: Local Stack Docker Setup
           run: |
-           python3 -m pip install localstack
-           localstack start
+           brew install localstack
+           
             
         - name: Checkout Code
           uses: actions/checkout@v3
