@@ -6,14 +6,8 @@ variable "default_tags" {
         key2 = "val2"
     }
 }
-variable "azcount" {
+variable "subnetcount" {
     type = number
     description = "(optional) describe your variable"
-    default = 6
-}
-
-variable "pbsubnetcount" {
-    type = number
-    description = "(optional) describe your variable"
-    default = 8
+    default = 5
 }
