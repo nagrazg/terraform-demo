@@ -10,7 +10,6 @@ jobs:
         - name: Local Stack Docker Setup
           run: |
             docker run --rm -t -p 4566:4566 -p 4510-4559:4510-4559 localstack/localstack
-            sleep 20
             docker ps
             
         - name: Checkout Code
