@@ -14,10 +14,10 @@ resource "aws_subnet" "pbsubnet" {
   
 cidr_block = cidrsubnet("10.0.0.0/16",4,count.index)
 
-  availability_zone = data.aws_availability_zones.available.name[count.index < 3 ? count.index : count.index % 3 ]
+  availability_zone = data.aws_availability_zones.available.names[count.index < 3 ? count.index : count.index % 3 ]
   
    tags = {
-    Name = "${count.index} - ${data.aws_availability_zones.available.name[count.index < 3 ? count.index : count.index % 3 ]}"
+    Name = "${count.index} - ${data.aws_availability_zones.available.names[count.index < 3 ? count.index : count.index % 3 ]}"
     }
 }
 
