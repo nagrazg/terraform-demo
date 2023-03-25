@@ -9,10 +9,9 @@ resource "aws_vpc" "name" {
 }
 
 
-data "aws_availability_zone" "az" {
+data "aws_availability_zones" "available" {
   state = "available"
 }
-
 resource "aws_subnet" "pbsubnet" {
   vpc_id     = aws_vpc.name.id
   count = var.subnetcount
