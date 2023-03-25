@@ -8,10 +8,6 @@ resource "aws_vpc" "name" {
   enable_dns_support = true
 }
 
-
-data "aws_availability_zones" "available" {
-  state = "available"
-}
 resource "aws_subnet" "pbsubnet" {
   vpc_id     = aws_vpc.name.id
   count = var.subnetcount
