@@ -12,7 +12,7 @@ resource "aws_subnet" "pbsubnet" {
   vpc_id     = aws_vpc.name.id
   count = var.subnetcount
   
-cidr_block = cidrsubnet("10.0.0.0/16",4,count.index)
+cidr_block = cidrsubnet("10.0.0.0/20", 4, count.index)
 
   
   availability_zone = var.az[count.index < 3 ? count.index : count.index % 3]
