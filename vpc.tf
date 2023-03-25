@@ -8,19 +8,28 @@ resource "aws_vpc" "name" {
   enable_dns_support = true
 }
 
-locals {
-  scount = (count.index <=3 ? count.index : count.index % 3  )
+
+data "aws_availability_zone" "az" {
+  state = "available"
 }
 
 resource "aws_subnet" "pbsubnet" {
   vpc_id     = aws_vpc.name.id
   count = var.subnetcount
   
-  cidr_block = cidrsubnet("10.0.0.0/16",4, local.count)
+cidr_block = cidrsubnet("10.0.0.0/16",4,count.index)
+
+  availability_zone = data.aws_availability_zone.az.name[count.index < 3 ? count.index : count.index % 3 ]
+  
    tags = {
-    Name = "${var.default_tags["key2"]}- count.index"
-  }
+    Name = "${count.index} - ${data.aws_availability_zone.az.name[count.index < 3 ? count.index : count.index % 3 ]}"
+    }
 }
+
+
+
+
+
 
 resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.name.id
