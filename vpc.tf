@@ -52,7 +52,7 @@ resource "aws_lb_target_group_attachment" "test" {
 }
 
 resource "aws_instance" "test" {
-  ami = ami-074cce78125f09d61
+  ami = "ami-074cce78125f09d61"
   instance_type           = "t3.micro"
   subnet_id = aws_subnet.pbsubnet[0].id
 }
