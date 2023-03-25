@@ -24,7 +24,7 @@ cidr_block = cidrsubnet("10.0.0.0/20", 4, count.index)
 resource "aws_lb" "demolb" {
   load_balancer_type = "application"
   internal = false
-  subnets = var.aws_subnet.pbsubnet.*.id 
+  subnets = aws_subnet.pbsubnet.*.id 
   name = "${var.default_tags["key2"]}"
 }
 
@@ -52,6 +52,7 @@ resource "aws_lb_target_group_attachment" "test" {
 }
 
 resource "aws_instance" "test" {
+  ami = ami-0ff8a91507f77f867
   instance_type           = "t3.micro"
   subnet_id = aws_subnet.pbsubnet[0].id
 }
