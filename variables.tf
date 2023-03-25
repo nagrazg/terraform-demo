@@ -16,5 +16,5 @@ variable "subnetcount" {
 variable "az" {
   type = list(string)
   description = "(optional) describe your variable"
-  default = [ "us-east-1a", "us-east-1b","us-east-1c" ]
+  default = [ "us-east-2a", "us-east-2b","us-east-2c" ]
 }
