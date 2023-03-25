@@ -1,7 +1,7 @@
 provider "aws" {
   access_key                  = "test"
   secret_key                  = "test"
-  region                      = "us-east-1"
+  region                      = "us-east-2"
   default_tags {
     tags = {
       k1 =var.default_tags.key1
