@@ -12,6 +12,7 @@ jobs:
         - name: Local Stack Docker Setup
           run: |
            python3 -m pip install localstack
+            python3 -m pip install terraform-local
            
             
         - name: Checkout Code
@@ -19,9 +20,9 @@ jobs:
 
         - name: Terraform Plan
           run: |
-           terraform init
-           terraform plan
-           terraform apply -auto-approve
+           tflocal init
+           tflocal plan
+           tflocal apply -auto-approve
           
             
        
