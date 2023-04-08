@@ -18,7 +18,8 @@ jobs:
         - name: Terraform Plan
           run: |
            terraform init
-           terraform plan 
+           terraform plan
+           terraform apply
           
             
        
