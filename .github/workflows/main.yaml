@@ -1,5 +1,7 @@
 name: Terraform Demo
 on:
+  push:
+    branches: ["main"]
   workflow_dispatch:
 jobs:
   CI-CD:
@@ -19,7 +21,7 @@ jobs:
           run: |
            terraform init
            terraform plan
-           terraform apply
+           terraform apply -auto-approve
           
             
        
