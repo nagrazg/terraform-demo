@@ -11,8 +11,7 @@ jobs:
     steps:
         - name: Local Stack Docker Setup
           run: |
-           python3 -m pip install localstack
-            python3 -m pip install terraform-local
+           docker run --rm -it -p 4566:4566 -p 4510-4559:4510-4559 localstack/localstack
            
             
         - name: Checkout Code
