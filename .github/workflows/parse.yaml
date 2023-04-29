@@ -1,7 +1,9 @@
-on:
+on: 
+    workflow_dispatch:
     issues:
         types:
           - opened
+          - edited
 jobs:
     demo:
         runs-on: ubuntu-latest
@@ -13,4 +15,4 @@ jobs:
                 body: ${{toJSON(github.event.issue.body)}}
               run: |
                   echo  $data $issue
-              continue-on-error: true
+          
