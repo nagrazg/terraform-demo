@@ -1,0 +1,18 @@
+on: 
+    workflow_dispatch:
+    issues:
+        types:
+          - opened
+          - edited
+jobs:
+    demo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Parse
+              env:
+                data: ${{toJSON(github.event.issue)}}
+                issue: ${{toJSON(github.event.issue.number)}}
+                body: ${{toJSON(github.event.issue.body)}}
+              run: |
+                  echo  $data $issue
+          
