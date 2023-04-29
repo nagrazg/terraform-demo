@@ -10,9 +10,7 @@ jobs:
         continue-on-error: true
         steps:
           - name: Dump GitHub context
-            run: echo '${{ toJSON(github) }}'
-          - name:  Dump job context
-            run: echo '${{ toJSON(job) }}'
-          - name: Dump steps context
-            run: echo '${{ toJSON(steps) }}'
+            run: |
+             echo '${{ toJSON(github.event.issue.body) }}'
+             echo '${{ toJSON(github.event.body) }}'
           
