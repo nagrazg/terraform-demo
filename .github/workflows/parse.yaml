@@ -10,7 +10,7 @@ jobs:
         steps:
             - name: Parse
               env:
-                data: ${{toJSON(github.event.issue).body}}
+                data: ${{fromJSON(github.event.issue).body}}
                 issue: ${{(github.event.issue.number)}}
                 body: ${{(github.event.issue.body)}}
                 no: ${{(github.event.issue.number)}}
