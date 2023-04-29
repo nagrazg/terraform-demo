@@ -7,13 +7,12 @@ on:
 jobs:
     demo:
         runs-on: ubuntu-latest
+        continue-on-error: true
         steps:
-            - name: Parse
-              env:
-                data: ${{fromJSON(github.event.issue).body}}
-                issue: ${{(github.event.issue.number)}}
-                body: ${{(github.event.issue.body)}}
-                no: ${{(github.event.issue.number)}}
-              run: |
-                  echo  $data $issue $no $body
+          - name: Dump GitHub context
+            run: echo '${{ toJSON(github) }}'
+          - name:  Dump job context
+            run: echo '${{ toJSON(job) }}'
+          - name: Dump steps context
+            run: echo '${{ toJSON(steps) }}'
           
