@@ -14,9 +14,7 @@ jobs:
             run: |
               echo '${{ toJSON(github.event.issue.body) }}'
               echo "data=${{ toJSON(github.event.issue.body)}}" >> "$GITHUB_ENV"
-              echo ${{env.data}}
-               echo ${{env.data}}.*.name
-              echo ${{env.data.name}}
-              env:
-                text: ${{ toJSON(github.event.issue.body)}}
-              echo ${{env.text.name}} ${{env.text}}.name
+              echo "${{env.data}}"
+               echo " name is : ${{env.data}}.*.name "
+                echo "${{env.data}}.name"
+                echo " name :(${{env.data}}).name"
