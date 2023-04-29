@@ -12,5 +12,6 @@ jobs:
           - name: Dump GitHub context
             run: |
              echo '${{ toJSON(github.event.issue.body) }}'
-             echo '${{ toJSON(github.event.body) }}'
+             body: '${{ toJSON(github.event.body) }}'
+             echo  ${{ fromJSON(body.name) }} $body.msg
           
