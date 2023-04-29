@@ -11,8 +11,8 @@ jobs:
         steps:
           - name: Dump GitHub context
             run: |
-             echo '${{ toJSON(github.event.issue.body) }}'
-               echo "data=${{ toJSON(github.event.issue.body) }}" >> "$GITHUB_ENV"
+             echo '${{toJSON(github.event.issue.body)}}'
+               echo "data=${{ toJSON(github.event.issue.body)}}" >> "$GITHUB_ENV"
                echo '${{env.data}}'
                env:
                text: ${{ toJSON(github.event.issue.body)
