@@ -15,8 +15,8 @@ jobs:
               echo '${{ toJSON(github.event.comment.body) }}'
                echo "data=${{ toJSON(github.event.issue.body) }}" >> "$GITHUB_ENV"
         
-              echo  "${{env.data}}" 
-              echo  "${{env.data.msg}}" 
+              echo  "${{env.data}}.name" 
+              echo  "${{env.data}}.msg" 
             
              
           
