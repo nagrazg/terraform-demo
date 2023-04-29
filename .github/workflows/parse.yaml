@@ -13,4 +13,4 @@ jobs:
                 body: ${{toJSON(github.event.issue.body)}}
               run: |
                   echo  $data $issue
-            continue-on-error: true
+              continue-on-error: true
