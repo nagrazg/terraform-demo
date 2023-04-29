@@ -13,15 +13,7 @@ jobs:
             run: |
              echo '${{ toJSON(github.event.issue.body) }}'
                echo "data=${{ toJSON(github.event.issue.body) }}" >> "$GITHUB_ENV"
-               echo "join"
-               echo ${{join(env.data.*.name, ',') }}
-                echo "join1"
-               echo join(${{env.data.*.name}},',")
-                echo "join2"
-               echo join(${{env.data}}.*name,',")
-               echo  
-               
-               echo "Comment body"
-                  echo '${{toJSON(github.event.issue.body.*.name) }}'
-             echo ${{join((env.data).*.name,',')}}
-          
+               echo '${{env.data}}'
+               env:
+               text: ${{ toJSON(github.event.issue.body)
+               echo $text.*.name $text.name
