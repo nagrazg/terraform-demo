@@ -17,4 +17,4 @@ jobs:
               echo '${{env.data}}'
               env:
                 text: ${{ toJSON(github.event.issue.body)}}
-              echo '${{env.text)}}.*name' '${{env.text).*name}}' '${{env.text)}}.name' 
+              echo '${{env.text}}.*name' '${{(env.text).*name}}' '${{env.text}}.name' 
