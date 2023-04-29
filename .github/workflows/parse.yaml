@@ -12,11 +12,8 @@ jobs:
           - name: Dump GitHub context
             run: |
              echo '${{ toJSON(github.event.issue.body) }}'
-              echo '${{ toJSON(github.event.comment.body) }}'
                echo "data=${{ toJSON(github.event.issue.body) }}" >> "$GITHUB_ENV"
-               echo "${{fromJSON(env.data.name)}}"
-              name:  "${{fromJSON(env.data.name)}}" 
-              msg:    "${{fromJSON(env.data.msg)}}"
-              echo "$name" "$msg"
+               echo ${{ join(env.data.*.name,',') }}
+                  echo '${{ toJSON(github.event.comment.body.name) }}'
              
           
