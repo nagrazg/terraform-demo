@@ -15,7 +15,7 @@ jobs:
               pwd
               echo '${{ toJSON(github.event.issue.body) }}'
               echo '${{(github.event.issue.body.comments.*.name) }}'
-              echo " parse ${{ github.event.issue.body.comments.issueparse}} "
+              echo " parse ${{ (github.event.issue.body.comments.issueparse)}} and ${{ (github.event.issue.body.comments)}} "
           
               echo "Name=${{fromJSON(github.event.issue.body.*.name) }}" >> "$GITHUB_ENV"
               echo "Msg=${{(github.event.issue.body }}" >> "$GITHUB_ENV"
