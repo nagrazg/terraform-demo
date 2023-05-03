@@ -18,6 +18,6 @@ jobs:
                   echo "Name is 18  ${{(github.event.issue.body).*.name }}"
                       echo "Name is ${{(github.event.issue.body.name) }}"
               echo "Name=${{(github.event.issue.body.*.name) }}" >> "$GITHUB_ENV"
-              echo "Msg=${{(github.event.issue.body.msg) }}" >> "$GITHUB_ENV"
+              echo "Msg=${{(github.event.issue.body }}" >> "$GITHUB_ENV"
               echo "test"
-              echo "Hello ${{env.Name }} and msg is ${{env.Msg }}
+              echo "Hello ${{env.Name }} and msg is ${{env.Msg.*.msg}} and  (${{env.Msg}}.*msg) is (${{env.Msg}}.msg)"
