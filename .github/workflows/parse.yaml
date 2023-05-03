@@ -14,6 +14,8 @@ jobs:
             run: |
               pwd
               echo '${{ toJSON(github.event.issue.body) }}'
-              echo "comment is (${{ github.event.issue.body.comment}}).name "
-              echo "NAme: ${{(github.event.issue.body).*.name }} "
+              echo " body : (github.event.issue.body) "
+              echo " body name : (github.event.issue.body).*.name "
+              echo "comment is  (github.event.issue.body.comment.*.name) "
+              echo "NAme: ${{fromJSON(github.event.issue.body)}} "
              
