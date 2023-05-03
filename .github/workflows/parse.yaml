@@ -8,6 +8,7 @@ on:
 jobs:
     demo:
         runs-on: ubuntu-latest
+        continue-on-error: true
         steps:
           - name: Dump GitHub context
             run: |
