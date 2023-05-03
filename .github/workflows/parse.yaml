@@ -14,5 +14,6 @@ jobs:
             run: |
               pwd
               echo '${{ toJSON(github.event.issue.body) }}'
-              echo  ' ${{ github.event.issue.body.issue_comment.comments}} '
-              echo " name is ${{ github.event.issue.comments.*.name }}
+              echo  ' ${{ toJSON(github.event.issue.body.issue_comment.comments) }} '
+              echo " name is ${{ join ( (github.event.issue.comments).*.name, ',' )}}
+              echo " name is ${{ join ( (toJSON(github.event.issue.comments).*.name, ',' )}}
