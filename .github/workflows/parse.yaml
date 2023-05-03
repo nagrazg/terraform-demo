@@ -14,7 +14,7 @@ jobs:
               pwd
               echo '${{ toJSON(github.event.issue.body) }}'
               echo '${{(github.event.issue.body) }}'
-              echo "Name is ${{(github.event.issue.body.*.name) }}
+              echo "Name is ${{(github.event.issue.body.*.name) }} "
                   echo "Name is 18  ${{(github.event.issue.body).*.name) }}"
                       echo "Name is ${{(github.event.issue.body.name) }}"
               echo "Name=${{(github.event.issue.body.*.name) }}" >> "$GITHUB_ENV"
