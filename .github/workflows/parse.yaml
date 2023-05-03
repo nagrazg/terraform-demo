@@ -16,7 +16,7 @@ jobs:
               echo '${{ toJSON(github.event.issue.body) }}'
               echo '${{(github.event.issue.body) }}'
          
-              echo "Name=${{(github.event.issue.body.*.name) }}" >> $GITHUB_ENV
-              echo "Msg=${{(github.event.issue.body.msg) }}" >> $GITHUB_ENV
+              echo "Name=${{(github.event.issue.body.*.name) }}" >> "$GITHUB_ENV"
+              echo "Msg=${{(github.event.issue.body.msg) }}" >> "$GITHUB_ENV"
               echo "test"
               echo "Hello ${{env.Name }} and msg is ${{env.Msg }}
