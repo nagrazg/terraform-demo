@@ -14,8 +14,10 @@ jobs:
             run: |
               pwd
               echo '${{ toJSON(github.event.issue.body) }}'
-              echo " body : (github.event.issue.body) "
-              echo " body name : (github.event.issue.body).*.name "
-              echo "comment is  (github.event.issue.body.comment.*.name) "
-              echo "NAme: ${{fromJSON(github.event.issue.body)}} "
+              echo '${{ toJSON(github.event.issue.body) }}' >> out.txt
+              ls
+              cat out.txt
+              sleep 2
+              rm out.txt
+              ls-al
              
